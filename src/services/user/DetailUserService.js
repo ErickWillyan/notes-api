@@ -1,8 +1,8 @@
-import prisma from "../lib/prisma.js";
+import prisma from "../../lib/prisma.js";
 
 const DetailUserService = async (id) => {
   try {
-    const user = await prisma.users.findFirst({
+    const user = await prisma.user.findFirst({
       where: {
         id: id,
       },

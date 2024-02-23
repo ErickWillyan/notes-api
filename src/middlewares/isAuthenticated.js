@@ -6,6 +6,7 @@ const isAuthenticated = (req, res, next) => {
   const authToken = req.headers.authorization;
 
   if (!authToken) {
+    console.log(error);
     return res.status(401).end();
   }
 
@@ -20,7 +21,8 @@ const isAuthenticated = (req, res, next) => {
 
     return next();
   } catch (error) {
-    return response.json(401).end();
+    console.log(error);
+    return console.log("Você não está logado").end();
   }
 };
 

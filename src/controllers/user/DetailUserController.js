@@ -1,4 +1,4 @@
-import { DetailUserService } from "../../services/DetailUserService.js";
+import { DetailUserService } from "../../services/user/DetailUserService.js";
 
 const DetailUserController = async (req, res) => {
   const id = req.id;

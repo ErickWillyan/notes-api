@@ -1,10 +1,10 @@
-import prisma from "../lib/prisma.js";
+import prisma from "../../lib/prisma.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const AuthUserService = async ({ email, password }) => {
   try {
-    const user = await prisma.users.findFirst({
+    const user = await prisma.user.findFirst({
       where: {
         email: email,
       },

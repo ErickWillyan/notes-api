@@ -1,4 +1,4 @@
-import { AuthUserService } from "../../services/AuthUserService.js";
+import { AuthUserService } from "../../services/user/AuthUserService.js";
 
 const AuthUserController = async (req, res) => {
   const body = req.body;
