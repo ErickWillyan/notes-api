@@ -14,7 +14,8 @@ const DetailUserService = async (id) => {
     });
     return user;
   } catch (error) {
-    throw new Error(error);
+    console.log(error);
+    return;
   }
 };
 

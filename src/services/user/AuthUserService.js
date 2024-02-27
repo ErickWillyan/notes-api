@@ -11,26 +11,19 @@ const AuthUserService = async ({ email, password }) => {
     });
 
     if (!user) {
-      return { erro: "Email incorreto" };
+      return { erro: "Username or password invalid" };
     }
 
     const passwordMatch = await bcryptjs.compare(password, user.password);
 
     if (!passwordMatch) {
-      return { erro: "Senha incorreta" };
+      return { erro: "Username or password invalid" };
     }
 
-    const token = jwt.sign(
-      {
-        email,
-        password,
-      },
-      process.env.JWT_SECRET,
-      {
-        subject: user.id,
-        expiresIn: "30d",
-      }
-    );
+    const token = jwt.sign({}, process.env.JWT_SECRET, {
+      subject: user.id,
+      expiresIn: "30d",
+    });
 
     return {
       message: "Login Realizado",
@@ -40,7 +33,8 @@ const AuthUserService = async ({ email, password }) => {
       token: token,
     };
   } catch (error) {
-    throw new Error(error);
+    console.log(error);
+    return;
   }
 };
 

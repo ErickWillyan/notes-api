@@ -6,24 +6,35 @@ import { isAuthenticated } from "./middlewares/isAuthenticated.js";
 import { RegisterTaskController } from "./controllers/task/ResgisterTaskController.js";
 import { ConcludeTaskController } from "./controllers/task/ConcludeTaskController.js";
 import { DeleteTaskController } from "./controllers/task/DeleteTaskController.js";
+import { AlterTaskController } from "./controllers/task/AlterTaskController.js";
+import { ListTaskController } from "./controllers/task/ListTaskController.js";
 
 const router = Router();
 
-//post
-router.post("/RegisterUser", RegisterUserController);
+//Create
 
-router.post("/AuthUser", AuthUserController);
+router.post("/RegisterUser", RegisterUserController);
 
 router.post("/RegisterTask", isAuthenticated, RegisterTaskController);
 
-//get
+//Read
+
+router.post("/AuthUser", AuthUserController);
+
+router.get("/ListTask", isAuthenticated, ListTaskController);
+
 router.get("/DetailUser", isAuthenticated, DetailUserController);
 
-export { router };
+//Update
 
-//put
 router.put("/ConcludeTask", isAuthenticated, ConcludeTaskController);
 
-//delete
+router.put("/AlterTask", isAuthenticated, AlterTaskController);
+
+//Delete
 
 router.delete("/DeleteTask", isAuthenticated, DeleteTaskController);
+
+//
+
+export { router };
