@@ -12,7 +12,7 @@ const RegisterTaskService = async ({ name, description, userId }) => {
 
     console.log("Tarefa criada");
 
-    return Task;
+    return { Task, message: "Tarefa criada" };
   } catch (error) {
     console.log(error);
     return;
