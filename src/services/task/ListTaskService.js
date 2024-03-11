@@ -5,6 +5,7 @@ const ListTaskService = async (userId) => {
     const Task = await prisma.task.findMany({
       where: { userId: userId },
       select: {
+        id: true,
         name: true,
         description: true,
       },
