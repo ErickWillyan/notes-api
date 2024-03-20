@@ -1,6 +1,6 @@
 import prisma from "../../lib/prisma.js";
 
-const DeleteTaskService = async ({ taskId }) => {
+const DeleteTaskService = async (taskId) => {
   try {
     const Task = await prisma.task.delete({
       where: {

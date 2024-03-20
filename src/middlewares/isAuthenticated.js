@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 
 const isAuthenticated = (req, res, next) => {
-  console.log("Chamando middleware");
-
   const authToken = req.headers.authorization;
 
   if (!authToken) {
